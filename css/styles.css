@@ -10914,7 +10914,7 @@ section#about {
   position: absolute;
   font-size: 40em;
   color: blue;
-  opacity: 0.2;
+  opacity: 0.1;
   user-select: none;
 }
 
@@ -10945,6 +10945,41 @@ section .container .section-title {
 .portfolioMenu ul li.active {
   border-left: 4px solid blue;
 }
+
+.single-experience{
+  height: 20vh;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 1%;
+  border: 1px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  overflow: none;
+}
+
+.single-experience .logocontainer{
+  background-color: rgba(0,0,255,0.5);
+  color: white;
+  padding-top: 7%;
+}
+
+.single-experience .logocontainer img{
+  width: 80%;
+  height: auto;
+}
+
+.single-experience .content-container{
+  padding-top: 5%;
+  padding-bottom: 2%;
+}
+
+.single-experience .content-container .title{
+  font-size: 150%;
+}
+.single-experience .content-container .place{
+  font-size: 120%;
+  color: blue;
+}
+
 
 #skills .card {
   height: 30vh;
