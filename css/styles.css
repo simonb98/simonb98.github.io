@@ -10909,7 +10909,7 @@ section#about {
 }
 
 .aboutTitle {
-  margin-top: -20%;
+  margin-top: -15%;
   left: 5%;
   position: absolute;
   font-size: 40em;
@@ -10947,16 +10947,95 @@ section .container .section-title {
 }
 
 #skills .card {
-  height: 60vh;
+  height: 30vh;
   padding: 0;
+  overflow: hidden;
+  border-radius: 2%;
+  opacity: 0.5;
+  animation: easeOpacityOut 0.5s;
+  background-color: blue;
+}
+
+#skills .card.tools {
+  height: 20vh;
+  margin-top: 5vh;
+  border-radius: 1%;
+}
+
+#skills .card:hover {
+  opacity: 1;
+  animation: easeOpacityIn 0.5s;
+}
+
+@keyframes easeOpacityIn {
+  from {opacity: 0.5;}
+  to {opacity: 1;}
+}
+@keyframes easeOpacityOut {
+  from {opacity: 1;}
+  to {opacity: 0.5;}
+}
+
+#skills .card:hover .card-header {
+  height: 25%;
+  font-size: 2em;
+  color: white;
+  animation: easeConentIn 1s;
+}
+
+@keyframes easeContentIn {
+  from {height: 100%;font-size: 5em;}
+  to {height: 25%;font-size: 2em;}
+}
+@keyframes easeContentOut {
+  from {height: 25%;font-size: 2em;}
+  to {height: 100%;font-size: 5em;}
+}
+
+#skills .card .card-header img {
+  width: 100px;
+}
+
+#skills .card.tools .card-header img {
+  width: 70px;
+}
+
+#skills .card:hover .card-header img {
+  width: 40px;
 }
 
 #skills .card .card-header {
+  height: 100%;
   font-size: 5em;
+  color: white;
+  border: none;
+}
+
+#skills .card.tools .card-header {
+  height: 100%;
+  border: none;
+}
+#skills .card.tools:hover .card-header {
+  margin-top: -0.5vh;
+  height: 35%;
+  border: none;
+}
+
+#skills .card .card-body {
+  display: none;
+  margin-top: -2vh;
+  color: white;
+  border: none;
+}
+
+#skills .card:hover .card-body {
+  display: block;
 }
 
 #skills .card .card-footer {
   font-size: 2.5em;
+  color: white;
+  opacity: 0.5;
 }
 
 #contact h1 {
