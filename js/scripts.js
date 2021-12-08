@@ -71,61 +71,125 @@
     selectionBar.style.transform = `matrix(${selectionBarWidth}, 0, 0, 1, ${selectionBarPosition}, 1)`;
   };
 
+  let currenttab = 1;
+
   const showTabContent = (target) => {
     let story = document.getElementById("story");
     let portfolio = document.getElementById("portfolio");
+    let experience = document.getElementById("experience");
+    let education = document.getElementById("education");
+
+    let previoustab = currenttab;
+
     if (!target.className.toString().includes("is-active")) {
       if (target.className.toString().includes("story")) {
+        previoustab = currenttab;
+        currenttab = 1;
         setTimeout(() => {
-          document.getElementById("story").className = "";
-          document.getElementById("portfolio").className = "hidden";
+          story.className = "";
+          portfolio.className = "hidden";
+          experience.className = "hidden";
+          education.className = "hidden";
         }, 250);
-        story.animate([{
-            transform: "translate(150vw)"
-          },
-          {
-            transform: "translate(0vw)"
-          }
-        ], {
-          duration: 250,
-          delay: 250
-        })
-        portfolio.animate([{
-            transform: "translate(0vw)"
-          },
-          {
-            transform: "translate(-250vw)"
-          }
-        ], {
-          duration: 250
-        })
+        animateSlide(previoustab, currenttab, story);
       }
       if (target.className.toString().includes("portfolio")) {
+        previoustab = currenttab;
+        currenttab = 2;
         setTimeout(() => {
-          document.getElementById("story").className = "hidden";
-          document.getElementById("portfolio").className = "";
+          story.className = "hidden";
+          portfolio.className = "";
+          experience.className = "hidden";
+          education.className = "hidden";
         }, 250);
-        story.animate([{
-            transform: "translate(0vw)"
-          },
-          {
-            transform: "translate(150vw)"
-          }
-        ], {
-          duration: 250
-        })
-        portfolio.animate([{
-            transform: "translate(-250vw)"
-          },
-          {
-            transform: "translate(0vw)"
-          }
-        ], {
-          duration: 250,
-          delay: 250
-        })
+        animateSlide(previoustab, currenttab, portfolio);
+      }
+      if (target.className.toString().includes("experience")) {
+        previoustab = currenttab;
+        currenttab = 3;
+        setTimeout(() => {
+          story.className = "hidden";
+          portfolio.className = "hidden";
+          experience.className = "";
+          education.className = "hidden";
+        }, 250);
+        animateSlide(previoustab, currenttab, experience);
+      }
+      if (target.className.toString().includes("education")) {
+        previoustab = currenttab;
+        currenttab = 4;
+        setTimeout(() => {
+          story.className = "hidden";
+          portfolio.className = "hidden";
+          experience.className = "hidden";
+          education.className = "";
+        }, 250);
+        animateSlide(previoustab, currenttab, education);
+        
       }
     }
+  }
+
+  function animateSlide(pt, ct, newtab){
+    let oldtab;
+
+    switch(pt){
+      case 1:
+        oldtab = document.getElementById("story");
+        break;
+      case 2:
+        oldtab = document.getElementById("portfolio");
+        break;
+      case 3:
+        oldtab = document.getElementById("experience");
+        break;
+      case 4:
+        oldtab = document.getElementById("education");
+        break;
+    }
+
+    if (ct > pt){
+      newtab.animate([{
+          transform: "translate(150vw)"
+        },
+        {
+          transform: "translate(0vw)"
+        }
+      ], {
+        duration: 250,
+        delay: 250
+      })
+      oldtab.animate([{
+        transform: "translate(0vw)"
+        },
+        {
+            transform: "translate(-150vw)"
+        }
+        ], {
+        duration: 250
+        })
+    } else {
+      newtab.animate([{
+          transform: "translate(-150vw)"
+        },
+        {
+          transform: "translate(0vw)"
+        }
+      ], {
+        duration: 250,
+        delay: 250
+      })
+      oldtab.animate([{
+        transform: "translate(0vw)"
+        },
+        {
+            transform: "translate(150vw)"
+        }
+        ], {
+        duration: 250
+        })
+    }
+
   }
 
   Array.from(tabs).forEach((tab) => {
