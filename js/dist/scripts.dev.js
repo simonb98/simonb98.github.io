@@ -190,4 +190,37 @@
     });
   });
   moveTabSelectionBar(activeTab);
+
+  var toggleLiClass = function toggleLiClass(target) {
+    var elements = document.querySelectorAll(".portfli");
+    Array.from(elements).forEach(function (element) {
+      return element.classList.remove("active");
+    });
+    target.classList.add("active");
+  };
+
+  var toggleLiContentClass = function toggleLiContentClass(target) {
+    var elements = document.querySelectorAll(".portfcontent");
+    Array.from(elements).forEach(function (element) {
+      element.classList.remove("active"), element.classList.add("hidden");
+    });
+    target.classList.replace("hidden", "active");
+  };
+
+  var showLiContent = function showLiContent(target) {
+    console.log(document.querySelector('#' + target.id + 'c'));
+    var activeContent = document.querySelector('#' + target.id + 'c');
+    console.log(activeContent);
+
+    if (!target.className.toString().includes("active")) {
+      toggleLiContentClass(activeContent);
+    }
+  };
+
+  Array.from(document.querySelectorAll(".portfli")).forEach(function (li) {
+    li.addEventListener("click", function (event) {
+      showLiContent(event.target);
+      toggleLiClass(event.target);
+    });
+  });
 })(jQuery);

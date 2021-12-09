@@ -202,4 +202,38 @@
 
   moveTabSelectionBar(activeTab);
 
+  const toggleLiClass = (target) => {
+    let elements = document.querySelectorAll(".portfli");
+    Array.from(elements).forEach((element) => 
+      element.classList.remove("active")
+    );
+    target.classList.add("active");
+  };
+
+  const toggleLiContentClass = (target) => {
+    let elements = document.querySelectorAll(".portfcontent");
+    Array.from(elements).forEach((element) => { 
+      element.classList.remove("active"),
+      element.classList.add("hidden")
+    });
+    target.classList.replace("hidden","active");
+  };
+
+  const showLiContent = (target) => {
+
+    console.log(document.querySelector('#' + target.id + 'c'));
+    let activeContent = document.querySelector('#' + target.id + 'c');
+    console.log(activeContent);
+    if(!target.className.toString().includes("active")){
+      toggleLiContentClass(activeContent);
+    }
+  }
+
+  Array.from(document.querySelectorAll(".portfli")).forEach((li) => {
+    li.addEventListener("click", (event) => {
+      showLiContent(event.target);
+      toggleLiClass(event.target);
+    });
+  });
+
 })(jQuery);

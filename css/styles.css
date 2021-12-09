@@ -10918,6 +10918,11 @@ section#about {
   user-select: none;
 }
 
+#story .storytext {
+  font-weight:600;
+  opacity: 0.9;
+}
+
 section .container .section-title {
   font-family: 'GeosansLight';
   letter-spacing: 4px;
@@ -10931,15 +10936,58 @@ section .container .section-title {
 
 .portfolioMenu ul li {
   height: 5vh;
-  font-weight: 400;
-  padding-left: 1vw;
+  opacity: 0.8;
   padding: 1vh;
+  padding-left: 1vw;
+  animation: easeHoverOut 0.3s;
 }
 
 .portfolioMenu ul li:hover {
-  font-weight: 600;
   color: blue;
-  opacity: 0.8;
+  opacity: 1;
+  animation: easeHoverIn 0.3s;
+  cursor:pointer;
+}
+
+.portfolioMenu ul li.active {
+  height: 5vh;
+  padding-left: 1vw;
+  padding: 1vh;
+  color: blue;
+  opacity: 1;
+  animation: none;
+}
+
+.portfolioMenu ul li.active:hover {
+  height: 5vh;
+  padding-left: 1vw;
+  padding: 1vh;
+  color: blue;
+  opacity: 1;
+  animation: none;
+}
+
+
+
+@keyframes easeHoverIn {
+  from {
+    color: black;
+    opacity: 0.8;
+  }
+  to {
+    color: blue;
+    opacity: 1;
+  }
+}
+@keyframes easeHoverOut {
+  from {
+    color: blue;
+    opacity: 1;
+  }
+  to {
+    color: black;
+    opacity: 0.8;
+  }
 }
 
 .portfolioMenu ul li.active {
@@ -10947,7 +10995,7 @@ section .container .section-title {
 }
 
 .single-experience{
-  height: 20vh;
+  height: 15vh;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 1%;
   border: 1px;
@@ -10959,7 +11007,8 @@ section .container .section-title {
 .single-experience .logocontainer{
   background-color: rgba(0,0,255,0.5);
   color: white;
-  padding-top: 7%;
+  padding-top: 5%;
+  max-height: 100%;
 }
 
 .single-experience .logocontainer img{
@@ -10968,7 +11017,7 @@ section .container .section-title {
 }
 
 .single-experience .content-container{
-  padding-top: 5%;
+  padding-top: 2.5%;
   padding-bottom: 2%;
 }
 
@@ -10979,7 +11028,9 @@ section .container .section-title {
   font-size: 120%;
   color: blue;
 }
-
+.single-experience .content-container .description{
+  font-size: 90%;
+}
 
 #skills .card {
   height: 30vh;
