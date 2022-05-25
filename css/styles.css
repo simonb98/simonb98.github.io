@@ -10837,6 +10837,7 @@ header.masthead {
   z-index: -8;
   background-color: blue;
   opacity: 0.5;
+  overflow-x: hidden;
 }
 
 .gallery {
@@ -10909,7 +10910,7 @@ section#about {
 }
 
 .aboutTitle {
-  margin-top: -15%;
+  margin-top: -10%;
   left: 5%;
   position: absolute;
   font-size: 40em;
@@ -10919,7 +10920,6 @@ section#about {
 }
 
 #story .storytext {
-  font-weight:600;
   opacity: 0.9;
 }
 
@@ -10996,6 +10996,7 @@ section .container .section-title {
 
 .single-experience{
   height: 15vh;
+  max-height: 145px;
   background-color: rgba(255, 255, 255, 0.5);
   border-radius: 1%;
   border: 1px;
@@ -11124,11 +11125,19 @@ section .container .section-title {
   opacity: 0.5;
 }
 
+.contact-desktop {display: flex;}
+.contact-mobile {display: none;}
+
+@media screen and (max-width: 1200px) {
+  .contact-desktop {display: none;}
+  .contact-mobile {display: block;}
+}
+
 #contact h1 {
   color: white;
 }
 
-#contact .information {
+#contact .contact-desktop .information{
   background-color: white;
   padding: 2%;
   padding-right: 5%;
@@ -11142,6 +11151,17 @@ section .container .section-title {
     0 50%,
     10% 40%
   );
+}
+
+#contact .contact-mobile .information{
+  background-color: white;
+  padding: 5%;
+  padding-top: 10%;
+  clip-path: polygon(0 10%, 40% 10%, 50% 0, 60% 10%, 100% 10%, 100% 100%, 0 100%);
+}
+
+#contact .contact-mobile .information .text-left{
+  margin-left: 5%;
 }
 
 #contact .information h4 {
@@ -11163,4 +11183,14 @@ section .container .section-title {
 
 #contact .information .socials button:hover {
   opacity: 0.8;
+}
+
+section{
+  overflow: hidden;
+}
+
+#contact, #page-up {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
